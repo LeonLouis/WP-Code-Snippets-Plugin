@@ -1,0 +1,310 @@
+/* Snippets CSS*/
+.snippets-template-default {
+  position: relative;
+}
+.snippet-container {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+  justify-content: center;
+}
+.main-snippet {
+  width: 100%;
+}
+.snippet-title h1 {
+  font-size: 36px;
+  margin-bottom: 0;
+  font-family: inherit;
+  color: #000000;
+  word-break: break-word;
+}
+.snippet-author {
+  font-size: 14px;
+  font-family: inherit;
+  color: #000000;
+}
+.snippet-shortdesc {
+  font-size: 16px;
+  font-family: inherit;
+  color: #000000;
+  margin: 20px 0;
+  word-break: break-word;
+}
+.snippet-tags a {
+  text-decoration: none;
+  font-size: 14px;
+  font-family: inherit;
+  color: #000000;
+}
+.snippet-tags a:hover, .snippet-author a:hover {
+  color: #0697f2;
+}
+.snippet-author a {
+  text-decoration: none;
+}
+
+/* Archive CSS */
+.archive .snippet-inner-wrap {
+  overflow: hidden;
+  max-height: 200px;
+  pointer-events: none;
+}
+.archive .snippet-title h1 {
+  font-size: 21px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+.archive .snippet-title a {
+  text-decoration: none;
+}
+.archive .snippet-title a:hover h1 {
+  color: #0697f2;
+}
+.archive .snippet-container {
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+.archive .ast-container {
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+  padding: 0;
+  display: block;
+}
+.archive .main-snippet {
+  padding: 20px;
+  margin: 10px !important;
+  width: 100%;
+  max-width: 28%;
+  flex-grow: 0;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+/* Pagination CSS */
+.snippet-page-buttons {
+  text-align: center;
+  flex: 0 0 100%;
+}
+.snippet-page-buttons .page-numbers {
+  padding: 0 10px;
+  background: #010d27;
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+}
+.snippet-page-buttons .current {
+  background: #0697f2;
+}
+
+/* Comments CSS */
+#snippet-comments {
+  color: #000000;
+}
+#snippet-comments .comment-reply-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+#snippet-comments #commentform label:not(:last-child) {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: inherit;
+}
+#snippet-comments #commentform textarea, #snippet-comments #commentform input {
+  width: 100%;
+  outline: 0;
+  padding: 10px;
+  font-family: inherit;
+}
+#snippet-comments .comment-author img {
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 25px;
+}
+#snippet-comments li.comment {
+  list-style: none;
+  background: #f3f3f3;
+  padding: 10px 20px;
+  border-radius: 20px;
+  position: relative;
+  max-width: 80%;
+  margin: auto;
+}
+#snippet-comments .comment-form-cookies-consent input {
+  width: unset !important;
+  vertical-align: middle;
+}
+#snippet-comments .comment-form-cookies-consent {
+  margin: 10px 0;
+  text-align: center;
+}
+#snippet-comments .comment-form-cookies-consent label {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+#snippet-comments .comment-respond {
+  max-width: 50%;
+  background-color: #fff;
+}
+#snippet-comments .comment-form-author, #snippet-comments .comment-form-email {
+  max-width: 49%;
+  width: 100%;
+}
+#snippet-comments .comment-form-email {
+  float: right;
+}
+#snippet-comments .comment-form-author {
+  float: left;
+}
+#snippet-comments .comment-form-url {
+  width: 100%;
+}
+#snippet-comments .comment-notes {
+  font-size: 12px;
+}
+#snippet-comments .comment-respond {
+  border: 1px solid #e8e8e2;
+  padding: 35px;
+  box-shadow: 0px 0px 4px 0px #e8e8e2;
+  margin-top: 20px;
+}
+#snippet-comments #submit {
+  border: 3px solid #02d0ff;
+  padding: 14px 64px;
+  font-size: 1.3rem;
+  border-radius: 28px;
+  color: #02d0ff;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: #ffffff;
+  width: 250px !important;
+  cursor: pointer;
+}
+#snippet-comments .form-submit {
+  text-align: center;
+  margin: 10px 0;
+}
+.reply {
+  font-size: 14px;
+  margin-top: 15px;
+}
+#snippet-comments .comment-body {
+  margin-left: 50px;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+#snippet-comments .comment-meta a {
+  pointer-events: none;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+#snippet-comments .comments-title {
+  font-size: 16px;
+  padding: 20px;
+}
+#snippet-comments .comment-reply-title small a {
+  margin-left: 10px;
+  text-decoration: none;
+}
+.single-snippets ul {
+    list-style: disc;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.single-snippets ol {
+	list-style: auto;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+/* Sidebar */
+.lcs-sidebar {
+  width: 100%;
+  line-height: 2;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-top: 130px;
+}
+.single-snippets .ast-container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0px !important;
+}
+
+/* Breadcrumbs */
+#lcs-breadcrumbs-wrapper {
+  margin-bottom: 25px;
+}
+
+/* Search */
+.nf-msg {
+  text-align: center;
+  width: 100%;
+  padding: 100px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.lcs-archive-wrap {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 20px;
+}
+#lcs-snippets-search-form {
+  text-align: center;
+  padding: 10px;
+}
+#lcs-snippets-search-form .search-field {
+  max-width: 500px;
+  width: 100%;
+}
+#lcs-snippets-search-form input {
+  margin: 5px 0;
+}
+
+@media only screen and (max-width: 991px){
+  .archive .main-snippet {
+    max-width: 40%;
+  }
+  #snippet-comments .comment-respond {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 922px){
+  .lcs-sidebar {
+    width: 30%;
+    margin: 4em 0 2.5em;
+  }
+}
+
+@media only screen and (max-width: 767px){
+  .snippet-container {
+    flex-direction: column;
+  }
+  .main-snippet {
+    margin: auto;
+  }
+  .lcs-sidebar {
+    padding-top: 50px;
+  }
+  .archive .main-snippet {
+    margin: 10px auto !important;
+    max-width: 80%;
+  }
+}
