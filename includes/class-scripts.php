@@ -10,7 +10,9 @@ if ( ! class_exists( 'LCS_SCRIPTS', false ) ) :
     }
 
     public function lcs_enqueue_scripts() {
-      if(is_singular('lcs-snippets') || is_post_type_archive('lcs-snippets') || is_tax(array('lcs_snippet_tag','lcs_snippet_category')) || is_author()){
+      if(!is_singular('lcs-snippets') && !is_post_type_archive('lcs-snippets') && !is_tax(array('lcs_snippet_tag','lcs_snippet_category')) && !is_author()){
+        return false;
+      }
     
         // Enqueue Styles
         wp_enqueue_style( 'highlight-style', LCS_SNIPPETS_URL.'assets/css/atom-one-dark.min.css');
@@ -18,8 +20,6 @@ if ( ! class_exists( 'LCS_SCRIPTS', false ) ) :
     
         // Enqueue Scripts
         wp_enqueue_script( 'highlight-scripts', LCS_SNIPPETS_URL.'assets/js/highlight.min.js');
-    
-      }
     }
 
     public function lcs_admin_scripts() {

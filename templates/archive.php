@@ -12,7 +12,7 @@
   $args = array(
     'post_type'			  => 'lcs-snippets',
     'order'				    => 'DESC',
-    'posts_per_page'	=> 15,
+    'posts_per_page'	=> lcs_get_num_snippets(),
     'paged'				    => (get_query_var('paged')) ? get_query_var('paged') : 1,
   );
 
@@ -40,9 +40,11 @@
 ?>
 
 <div class="lcs-archive-wrap">
-  <div id="lcs-breadcrumbs-wrapper">
-      <?php lcs_breadcrumbs(); ?>
-  </div>
+  <?php if( !empty(lcs_is_show_breadcrumb()) ): ?>
+    <div id="lcs-breadcrumbs-wrapper">
+        <?php lcs_breadcrumbs(); ?>
+    </div>
+  <?php endif; ?>
   <div id="lcs-snippets-search-form">
     <form role="search" method="get" class="search-form">
       <input type="search" class="search-field" placeholder="Search for:" value="<?php echo isset($_GET['s']) ? $_GET['s'] : ''; ?>" name="s" />

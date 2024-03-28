@@ -79,4 +79,17 @@ function lcs_custom_sidebar() {
 	) );
 }
 
+function lcs_get_color_scheme() {
+  $color_scheme = !empty(get_option('lcs_color_scheme', null )) ? get_option('lcs_color_scheme', null ) : '#0697f2';
+  return apply_filters( 'lcs_color_scheme_option', $color_scheme );
+}
 
+function lcs_is_show_breadcrumb() {
+  $show_breadcrumb = !empty(get_option('lcs_show_breadcrumb', null )) ? 'checked' : null;
+  return apply_filters( 'lcs_show_breadcrumb_option', $show_breadcrumb );
+}
+
+function lcs_get_num_snippets() {
+  $number_snippets = !empty(get_option('lcs_num_show_snippets', null )) ? get_option('lcs_num_show_snippets', null ) : '15';
+  return apply_filters( 'lcs_num_show_snippets_option', $number_snippets );
+}

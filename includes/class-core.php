@@ -36,10 +36,6 @@ if ( ! class_exists( 'LCS_CORE', false ) ) :
     }
 
     public function lcs_snippets_settings_page_callback() {
-      $color_scheme = !empty(get_option('lcs_color_scheme', null )) ? get_option('lcs_color_scheme', null ) : '#0697f2';
-      $show_breadcrumb = !empty(get_option('lcs_show_breadcrumb', null )) ? 'checked' : null;
-      $show_snippets = !empty(get_option('lcs_num_show_snippets', null )) ? get_option('lcs_num_show_snippets', null ) : '15';
-
       include_once LCS_SNIPPETS_PATH . 'templates/admin-settings.php';
     }
 
@@ -58,8 +54,13 @@ if ( ! class_exists( 'LCS_CORE', false ) ) :
 
     public function lcs_author_query($query) {
       if ( !is_admin() && $query->is_main_query() ) {
+        if (is_post_type_archive('lcs-snippets') || is_tax(array('lcs_snippet_tag','lcs_snippet_category'))) {
+          $query->set('posts_per_page', lcs_get_num_snippets());
+        }
+
         if ($query->is_author()) {
           $query->set('post_type', array('post', 'lcs-snippets'));
+          $query->set('posts_per_page', lcs_get_num_snippets());
         }
       }
     }

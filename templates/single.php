@@ -16,9 +16,11 @@
     <?php if ( have_posts() ) {
       while ( have_posts() ) : the_post(); ?>
         <div class="main-snippet">
+        <?php if( !empty(lcs_is_show_breadcrumb()) ): ?>
           <div id="lcs-breadcrumbs-wrapper">
-            <?php lcs_breadcrumbs(); ?>
+              <?php lcs_breadcrumbs(); ?>
           </div>
+        <?php endif; ?>
           <div class="snippet-wrap">
             <div class="snippet-title">
               <h1><?php the_title(); ?></h1>
