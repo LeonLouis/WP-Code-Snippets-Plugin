@@ -34,5 +34,3 @@ add_action( 'plugins_loaded', 'lcs_load_textdomain' );
 function lcs_load_textdomain() {
 	load_plugin_textdomain( 'lcs-snippets', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
 }
-
-register_activation_hook( __FILE__, 'lcs_set_options' );

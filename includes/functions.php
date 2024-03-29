@@ -1,13 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) {	exit; }
 
-function lcs_set_options() {
-  update_option('thread_comments_depth', 3);
-  update_option('thread_comments', 1);
-  update_option('page_comments', 1);
-  update_option('comments_per_page', 3);
-}
-
 function lcs_breadcrumbs() {
   $post_type_label = 'Snippets';
   $post_type_slug = 'snippets';

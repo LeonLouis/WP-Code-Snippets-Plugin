@@ -10,6 +10,7 @@
   }
 
   $tags = get_the_terms(get_the_ID(), 'lcs_snippet_tag');
+  $code = get_post_meta(get_the_ID(), 'lcs_code_value', true);
 ?>
 
 <div class="snippet-container">
@@ -36,6 +37,14 @@
               <?php endif; ?>
               <div id="main-content">
                 <?php the_content(); ?>
+                <?php if(!empty($code)): ?>
+                  <pre>
+                    <code><?php echo $code; ?></code>
+                  </pre>
+                  <script type="text/javascript">
+                    hljs.highlightAll();
+                  </script>
+                <?php endif; ?>
               </div>
             </div>
           </div>
@@ -43,7 +52,6 @@
         </div>
     <?php 
       endwhile;
-      // get_sidebar();
       if ( is_active_sidebar( 'lcs-customs-sidebar-main' ) ) {
       ?>
         <div class="lcs-sidebar">

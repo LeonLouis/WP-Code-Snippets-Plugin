@@ -35,7 +35,7 @@ if ( ! class_exists( 'LCS_POST_TYPE', false ) ) :
         'description'        => __( 'Snippets', 'lcs-snippets' ),
         'labels'             => $labels,
         'menu_icon'          => 'dashicons-editor-code',
-        'supports'           => array('title', 'editor', 'revisions', 'author', 'custom-fields', 'excerpt', 'thumbnail', 'comments'),
+        'supports'           => array('title', 'editor', 'revisions', 'author', 'custom-fields', 'comments'),
         'taxonomies'         => array( 'snippet_category','snippet_tag' ),
         'public'             => true,
         'show_ui'            => true,

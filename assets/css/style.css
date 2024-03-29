@@ -38,7 +38,7 @@
   color: #000000;
 }
 .snippet-tags a:hover, .snippet-author a:hover {
-  color: #0697f2;
+  color: var(--lcs-primary);
 }
 .snippet-author a {
   text-decoration: none;
@@ -60,7 +60,7 @@
   text-decoration: none;
 }
 .archive .snippet-title a:hover h1 {
-  color: #0697f2;
+  color: var(--lcs-primary);
 }
 .archive .snippet-container {
   flex-wrap: wrap;
@@ -96,7 +96,7 @@
   text-decoration: none;
 }
 .snippet-page-buttons .current {
-  background: #0697f2;
+  background: var(--lcs-primary);
 }
 
 /* Comments CSS */
@@ -214,22 +214,22 @@
   text-decoration: none;
 }
 .single-snippets ul {
-    list-style: disc;
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+  list-style: disc;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
 }
 .single-snippets ol {
 	list-style: auto;
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
 }
 
 /* Sidebar */
@@ -250,6 +250,12 @@
 /* Breadcrumbs */
 #lcs-breadcrumbs-wrapper {
   margin-bottom: 25px;
+}
+#lcs-breadcrumbs-wrapper a {
+  text-decoration: none;
+}
+#lcs-breadcrumbs-wrapper a:hover {
+  color: var(--lcs-primary);
 }
 
 /* Search */
@@ -272,9 +278,19 @@
 #lcs-snippets-search-form .search-field {
   max-width: 500px;
   width: 100%;
+  padding: 10px;
+  outline: 0;
 }
 #lcs-snippets-search-form input {
   margin: 5px 0;
+}
+#lcs-snippets-search-form .search-submit {
+  background-color: var(--lcs-primary);
+  border: 0;
+  outline: 0;
+  padding: 12px 20px;
+  color: #fff;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 991px){

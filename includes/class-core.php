@@ -14,6 +14,9 @@ if ( ! class_exists( 'LCS_CORE', false ) ) :
       add_action( 'admin_init', array($this, 'lcs_register_settings' ) );
       add_action( 'wp_head', array($this, 'lcs_archive_metadesc') );
       add_action( 'pre_get_posts', array($this, 'lcs_author_query') );
+      add_action( 'wp_head', array($this, 'lcs_dynamic_style') );
+      add_action( 'add_meta_boxes', array( $this, 'lcs_meta_box' ) );
+      add_action( 'save_post', array( $this, 'lcs_save_code' ) );
 
       // Filters
       add_filter( 'single_template', array($this, 'lcs_template') );
@@ -89,16 +92,64 @@ if ( ! class_exists( 'LCS_CORE', false ) ) :
     
       ob_start();
       ?>
-        <div class="snippet-code">
-          <pre>
-            <code class="language-<?php echo $a['language']; ?>"><?php echo $content; ?></code>
-          </pre>
-        </div>
+        <pre>
+          <code class="language-<?php echo $a['language']; ?>"><?php echo $content; ?></code>
+        </pre>
         <script type="text/javascript">
           hljs.highlightAll();
         </script>
       <?php
       return ob_get_clean();
+    }
+
+    public function lcs_dynamic_style() {
+      if(!is_singular('lcs-snippets') && !is_post_type_archive('lcs-snippets') && !is_tax(array('lcs_snippet_tag','lcs_snippet_category')) && !is_author()){
+        return;
+      }
+      ?>
+        <style type="text/css">
+          :root{
+            --lcs-primary: <?php echo lcs_get_color_scheme(); ?>;
+          }
+        </style>
+      <?php
+    }
+
+    public function lcs_meta_box( $post_type ) {
+      $post_types = array( 'lcs-snippets' );
+
+      if ( in_array( $post_type, $post_types ) ) {
+        add_meta_box(
+          'highlighter_textarea',
+          __( 'LCS Code', 'textdomain' ),
+          array( $this, 'render_meta_box_content' ),
+          $post_type,
+          'advanced',
+          'high'
+        );
+      }
+    }
+
+    public function render_meta_box_content( $post ) {
+      wp_nonce_field( 'lcs_textarea_code', 'lcs_textarea_code_nonce' );
+      $code = get_post_meta( $post->ID, 'lcs_code_value', true );
+      ?>
+        <textarea cols="40" rows="10" name="lcs_code_value" id="lcs_code_value"><?php echo $code; ?></textarea>
+        <em style="color:#b32d2e">Note: Only codes should be added here.</em>
+      <?php
+    }
+
+    public function lcs_save_code( $post_id ) {
+      if ( ! isset( $_POST['lcs_textarea_code_nonce'] ) ) {
+        return $post_id;
+      }
+  
+      $nonce = $_POST['lcs_textarea_code_nonce'];
+      if ( ! wp_verify_nonce( $nonce, 'lcs_textarea_code' ) ) {
+        return $post_id;
+      }
+  
+      update_post_meta( $post_id, 'lcs_code_value', $_POST['lcs_code_value'] );
     }
   }
 
