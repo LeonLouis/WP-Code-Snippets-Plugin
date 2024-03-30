@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Louis Code Snippets
  * Plugin URI: https://louis.fatbois.life/
- * Description: A plugin that enables to create and showcase code snippets.
+ * Description: A plugin where you can create code snippets for your website as a knowledge base that users can check and search for codes.
  * Version: 1.0.0
  * Author: <a href="https://louis.fatbois.life/">Code by Louis</a>
  * Author URI: https://louis.fatbois.life/
